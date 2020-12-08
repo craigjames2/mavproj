@@ -8,15 +8,16 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>myProducer</artifactId>
+	<groupId>stringpro</groupId>
+	<artifactId>stringpro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>myProducer</name>
+	<name>stringpro</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<pulsar.version>2.7.0</pulsar.version>
 		<java.version>1.8</java.version>
+		<start-class>stringpro.producer</start-class>
 	</properties>
 
 	<dependencies>
