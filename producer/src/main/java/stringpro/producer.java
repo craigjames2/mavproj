@@ -1,5 +1,6 @@
 package stringpro;
-
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.TypedMessageBuilder;
 import org.apache.pulsar.client.api.MessageId;
@@ -29,7 +30,10 @@ public class producer
 		Producer<byte[]> producer = client.newProducer()
 			.topic("my-topic")  
 			.create();
-		byte[] content = text.getBytes();          
+		ObjectMapper objMap = new  ObjectMapper();
+		MessagePacket msg = new MessagePacket(text);
+		byte[] content = objMap.writeValueAsBytes(msg);
+		          
 		MessageId msgId = producer.newMessage().value(content).send();
 	       	producer.close();
 		client.close();
